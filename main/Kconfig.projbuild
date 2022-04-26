@@ -6,4 +6,10 @@ menu "Mota Sensora Configuration"
 		help
 			GPIO number for DHT11 Sensor
 
+	config WRITE_API_KEY
+		string "Write API Key"
+		default ""
+		help
+			Thingspeak's API Key that you can get in the webpage
+
 endmenu
