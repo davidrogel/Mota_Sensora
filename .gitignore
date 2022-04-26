@@ -1,0 +1,28 @@
+.DS_Store
+ 
+#Ignore files built by Visual Studio/Visual Micro
+[Dd]ebug*/
+[Rr]elease*/
+.vs/
+__vm/
+*.vcxproj*
+.vscode/
+platform.sloeber.txt
+boards.sloeber.txt
+
+# Ignore docs build (Sphinx)
+docs/build
+docs/source/_build
+
+# Test log files
+*.log
+
+# config files
+sdkconfig
+sdkconfig.old
+
+# build
+build
+
+# ctags
+tags
