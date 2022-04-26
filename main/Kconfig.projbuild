@@ -1,0 +1,9 @@
+menu "Mota Sensora Configuration"
+	config CONFIG_PIN_IN_DHT11
+		int "DHT11 GPIO Number"
+		range 0 48
+		default 5
+		help
+			GPIO number for DHT11 Sensor
+
+endmenu
