@@ -2,7 +2,7 @@
 
 Proyecto para la creación de una Mota Sensora que permita leer los sensores acoplados.
 
-### Dependencias
+### Dependencias ⚠️⚠️⚠️
 
 La Mota depende del módulo que lee el sensor DHT11. Para descargar el proyecto junto a las dependencias usar:
 
