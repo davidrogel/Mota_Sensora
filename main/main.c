@@ -1,11 +1,26 @@
-/* ESP HTTP Client Example
-
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-   */
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 David Rogel Pernas
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #include <stdio.h>
 #include <string.h>
@@ -84,10 +99,6 @@ static char query_str[128] = {0}; // buffer de caracteres que guardará la query
 static const char *TAG = "Mota Sensora";
 
 /* DEFINICIONES */
-
-
-
-
 
 esp_err_t _http_event_handler(esp_http_client_event_t *evt)
 {
@@ -302,6 +313,24 @@ static int read_from_dht11(struct dht_reading * data)
 	return new_data.status;
 }
 
+static uint32_t adc_reading(const adc_channel_t channel)
+{
+	uint32_t adc_reading = 0;
+
+	//Multisampling
+	for (int i = 0; i < NO_OF_SAMPLES; i++) {
+		if (unit == ADC_UNIT_1) {
+			adc_reading += adc1_get_raw((adc1_channel_t)channel);
+		}
+	}
+	adc_reading /= NO_OF_SAMPLES;
+
+	//Convert adc_reading to voltage in mV
+	uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+	printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+	return voltage;
+}
+
 void app_main(void)
 {
 	connect_to_wifi();
@@ -318,40 +347,20 @@ void app_main(void)
 	//float R0;
 
 	while(1) {
-#if 0
-/* Obtención de los datos */
-		uint32_t adc_reading = 0;
-		//Multisampling
-		for (int i = 0; i < NO_OF_SAMPLES; i++) {
-			if (unit == ADC_UNIT_1) {
-				adc_reading += adc1_get_raw((adc1_channel_t)channel);
-			} else {
-				int raw;
-				adc2_get_raw((adc2_channel_t)channel, width, &raw);
-				adc_reading += raw;
-			}
-		}
-		adc_reading /= NO_OF_SAMPLES;
+		/* Obtención de los datos */
+		/* Sensores MQ2 y MQ3 */
+		uint32_t mq2_voltage = adc_reading(mq2_channel);
+		float mq2_RS_air = (float)(2450 - mq2_voltage) / (float)(mq2_voltage);
+		uint32_t mq3_voltage = adc_reading(mq3_channel);
+		float mq3_RS_air = (float)(2450 - mq3_voltage) / (float)(mq3_voltage);
 
-		//Convert adc_reading to voltage in mV
-		uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-		printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
-
-		float RS_air = (float)(2450 - voltage) / (float)(voltage);
-		//R0 = RS_air/(float)10.0;
-
-		//printf("Rs_air %f R0 %f ratio %f\n", (float)voltage, voltage/10.f, (float)voltage/(voltage/10.f));
-
-
-#endif
 		/* Sensor DHT11 */
 		read_from_dht11(&dht11_data);
-
-/* Obtención de los datos */
+		/* Obtención de los datos */
 
 		/* Envio de datos */
 		send_data_to_server(dht11_data.temperature, dht11_data.humidity,
-				0.f, 0.f);
+				mq2_RS_air, mq3_RS_air);
 		/* Envio de datos */
 
 		// Para thingspeak free tenemos que esperar 15s entre llamada y llamada
