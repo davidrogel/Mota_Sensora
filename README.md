@@ -12,9 +12,11 @@ git clone --recurse-submodules https://github.com/davidrogel/Mota_Sensora
 
 ## Sensores
 
-- DHT11
-- MQ-2
-- MQ-3
+| Sensor | Documentación |
+|---|---|
+| DHT11 | [Enlace](https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf) |
+| MQ-2 | [Enlace](http://gas-sensor.ru/pdf/combustible-gas-sensor.pdf) |
+| MQ-3 | [Enlace](https://www.sparkfun.com/datasheets/Sensors/MQ-3.pdf) |
 
 ## Microcontrolador - ESP32
 
@@ -28,21 +30,19 @@ A parte del proyecto mencionado antes, se ha usado el proyecto de ejemplo **[adc
 
 ### Configuración y uso
 
-Dentro de la carpeta del proyecto, configurar el tipo de dispositivo y abrir el **menuconfig** para configurar la ssid y password del WiFi y la api-key de thingspeak. También es posible modificar el pin digital del sensor DHT11
-
+Dentro de la carpeta del proyecto, configurar el tipo de dispositivo y abrir el **menuconfig** para configurar la ssid y password del WiFi y la api-key de thingspeak. También es posible modificar el pin digital del sensor DHT11.
 ```
 idf.py set-target esp32
 idf.py menuconfig
 ```
 
-Luego de eso builder y flashear el programa
-
+Tras configurar, hacer build y flashear el programa
 ```
 idf.py build
 idf.py -p PORT flash
 ```
 
-El puerto PORT será el USB que tengais conectado al dispositivo, en linux se puede hacer lo siguiente para buscar el USB:
+El parámetro **PORT** será el USB que tengais conectado al dispositivo, en linux se puede hacer lo siguiente para buscar el USB:
 ```
 ls /dev/ttyUSB*
 ```
@@ -51,3 +51,4 @@ Por último podeis monitorizar lo que está pasando (obtener los datos de salida
 ```
 idf.py -p PORT monitor
 ```
+

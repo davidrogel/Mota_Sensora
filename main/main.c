@@ -90,7 +90,7 @@ static const adc_unit_t unit = ADC_UNIT_1;
 */
 #define HOST "api.thingspeak.com"
 #define PATH "/update" // "/update.json" ???
-#define WRITE_API_KEY "JNQZ81RODX5LATC5" // CONFIG_WRITE_API_KEY // TODO: Quitar la api-key de aqui y llevarla a la configuración
+#define WRITE_API_KEY CONFIG_WRITE_API_KEY
 
 static char query_str[128] = {0}; // buffer de caracteres que guardará la query a enviar
 
