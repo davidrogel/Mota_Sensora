@@ -1,0 +1,287 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:R R2
+U 1 1 629FA84C
+P 3650 2750
+F 0 "R2" H 3720 2796 50  0000 L CNN
+F 1 "10K" H 3720 2705 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 2750 50  0001 C CNN
+F 3 "~" H 3650 2750 50  0001 C CNN
+	1    3650 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 629FB09D
+P 3650 3200
+F 0 "R3" H 3720 3246 50  0000 L CNN
+F 1 "22K" H 3720 3155 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 3200 50  0001 C CNN
+F 3 "~" H 3650 3200 50  0001 C CNN
+	1    3650 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 629FB3AA
+P 3650 2250
+F 0 "R1" H 3720 2296 50  0000 L CNN
+F 1 "100K" H 3720 2205 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 2250 50  0001 C CNN
+F 3 "~" H 3650 2250 50  0001 C CNN
+	1    3650 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J1
+U 1 1 62A04080
+P 1950 2350
+F 0 "J1" H 1842 1925 50  0000 C CNN
+F 1 "Conn_01x04_Female" H 1842 2016 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 1950 2350 50  0001 C CNN
+F 3 "~" H 1950 2350 50  0001 C CNN
+	1    1950 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J2
+U 1 1 62A07287
+P 2000 4300
+F 0 "J2" H 1892 3875 50  0000 C CNN
+F 1 "Conn_01x04_Female" H 1892 3966 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 2000 4300 50  0001 C CNN
+F 3 "~" H 2000 4300 50  0001 C CNN
+	1    2000 4300
+	-1   0    0    1   
+$EndComp
+NoConn ~ 2150 2350
+NoConn ~ 2200 4300
+$Comp
+L Connector:Conn_01x03_Female J4
+U 1 1 62A1229F
+P 7500 1750
+F 0 "J4" V 7438 1562 50  0000 R CNN
+F 1 "Conn_01x03_Female" V 7347 1562 50  0000 R CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 7500 1750 50  0001 C CNN
+F 3 "~" H 7500 1750 50  0001 C CNN
+	1    7500 1750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2150 2450 2750 2450
+Wire Wire Line
+	2750 2450 2750 2100
+Wire Wire Line
+	2750 2100 3650 2100
+Wire Wire Line
+	3650 2900 3650 3050
+Wire Wire Line
+	2200 4400 2700 4400
+Wire Wire Line
+	2700 4400 2700 3850
+Wire Wire Line
+	7600 1950 7600 3750
+$Comp
+L power:GND #PWR01
+U 1 1 62A10AF8
+P 4300 5450
+F 0 "#PWR01" H 4300 5200 50  0001 C CNN
+F 1 "GND" H 4305 5277 50  0000 C CNN
+F 2 "" H 4300 5450 50  0001 C CNN
+F 3 "" H 4300 5450 50  0001 C CNN
+	1    4300 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 2250 2550 2250
+Wire Wire Line
+	2550 2250 2550 4200
+Wire Wire Line
+	2200 4200 2550 4200
+Connection ~ 2550 4200
+Wire Wire Line
+	2550 4200 2550 5300
+Wire Wire Line
+	2650 2150 2150 2150
+Wire Wire Line
+	2650 4100 2200 4100
+Connection ~ 2650 2150
+$Comp
+L power:GND #PWR02
+U 1 1 62A2C74F
+P 7000 2950
+F 0 "#PWR02" H 7000 2700 50  0001 C CNN
+F 1 "GND" H 7005 2777 50  0000 C CNN
+F 2 "" H 7000 2950 50  0001 C CNN
+F 3 "" H 7000 2950 50  0001 C CNN
+	1    7000 2950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7000 3150 7400 3150
+$Comp
+L Connector:Conn_01x15_Female J3
+U 1 1 62A40EB1
+P 5950 3500
+F 0 "J3" H 5700 4450 50  0000 L CNN
+F 1 "Conn_01x15_Female" H 5300 4350 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 5950 3500 50  0001 C CNN
+F 3 "~" H 5950 3500 50  0001 C CNN
+	1    5950 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 1950 7500 3050
+Text Label 8000 3050 0    50   ~ 0
++3.3V
+$Comp
+L Connector:Conn_01x15_Female J5
+U 1 1 62A42FD5
+P 8550 3750
+F 0 "J5" H 8442 2825 50  0000 C CNN
+F 1 "Conn_01x15_Female" H 8442 2916 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 8550 3750 50  0001 C CNN
+F 3 "~" H 8550 3750 50  0001 C CNN
+	1    8550 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 3050 8350 3050
+Wire Wire Line
+	7400 3150 8350 3150
+Wire Wire Line
+	7600 3750 8350 3750
+Wire Wire Line
+	5750 2800 5250 2800
+Text Label 5450 2800 0    50   ~ 0
++5V
+Wire Wire Line
+	5000 2500 5000 3800
+Wire Wire Line
+	5000 3800 5750 3800
+Wire Wire Line
+	5000 4250 5000 3900
+Wire Wire Line
+	5000 3900 5750 3900
+Wire Wire Line
+	3650 2400 3650 2500
+Wire Wire Line
+	3650 3350 4300 3350
+Wire Wire Line
+	4300 3350 4300 5300
+Connection ~ 4300 5300
+Wire Wire Line
+	4300 5300 4300 5450
+Wire Wire Line
+	5750 2900 5250 2900
+Wire Wire Line
+	5250 2900 5250 5300
+Wire Wire Line
+	5250 5300 4300 5300
+Wire Wire Line
+	2650 1700 2650 2150
+Wire Wire Line
+	5000 2500 3650 2500
+Connection ~ 3650 2500
+Wire Wire Line
+	3650 2500 3650 2600
+NoConn ~ 5750 3000
+NoConn ~ 5750 3100
+NoConn ~ 5750 3200
+NoConn ~ 5750 3300
+NoConn ~ 5750 3400
+NoConn ~ 5750 3500
+NoConn ~ 5750 3600
+NoConn ~ 5750 3700
+NoConn ~ 5750 4000
+NoConn ~ 5750 4100
+NoConn ~ 5750 4200
+NoConn ~ 8350 3250
+NoConn ~ 8350 3350
+NoConn ~ 8350 3450
+NoConn ~ 8350 3550
+NoConn ~ 8350 3650
+NoConn ~ 8350 3850
+NoConn ~ 8350 3950
+NoConn ~ 8350 4050
+NoConn ~ 8350 4150
+NoConn ~ 8350 4250
+NoConn ~ 8350 4350
+NoConn ~ 8350 4450
+Connection ~ 7400 3150
+Wire Wire Line
+	7400 1950 7400 3150
+Wire Wire Line
+	2650 2150 2650 4100
+Wire Wire Line
+	3650 4700 3650 4850
+$Comp
+L Device:R R6
+U 1 1 62ABB946
+P 3650 5000
+F 0 "R6" H 3720 5046 50  0000 L CNN
+F 1 "22K" H 3720 4955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 5000 50  0001 C CNN
+F 3 "~" H 3650 5000 50  0001 C CNN
+	1    3650 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 62ABB940
+P 3650 4550
+F 0 "R5" H 3720 4596 50  0000 L CNN
+F 1 "10K" H 3720 4505 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 4550 50  0001 C CNN
+F 3 "~" H 3650 4550 50  0001 C CNN
+	1    3650 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 4250 3650 4400
+Connection ~ 3650 4250
+Wire Wire Line
+	5000 4250 3650 4250
+Connection ~ 3650 5300
+Wire Wire Line
+	3650 5300 4300 5300
+Wire Wire Line
+	2550 5300 3650 5300
+Wire Wire Line
+	3650 4150 3650 4250
+Wire Wire Line
+	3650 5150 3650 5300
+Wire Wire Line
+	2700 3850 3650 3850
+$Comp
+L Device:R R4
+U 1 1 629FDB63
+P 3650 4000
+F 0 "R4" H 3720 4046 50  0000 L CNN
+F 1 "100K" H 3720 3955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3580 4000 50  0001 C CNN
+F 3 "~" H 3650 4000 50  0001 C CNN
+	1    3650 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 2950 7000 3150
+Wire Wire Line
+	5250 1700 2650 1700
+Wire Wire Line
+	5250 2800 5250 1700
+$EndSCHEMATC
